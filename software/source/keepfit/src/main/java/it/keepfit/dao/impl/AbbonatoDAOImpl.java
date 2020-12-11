@@ -11,10 +11,13 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.springframework.stereotype.Component;
+
 import it.keepfit.constants.StatoAbbonamento;
 import it.keepfit.dao.AbbonatoDAO;
 import it.keepfit.entity.Abbonato;
 
+@Component
 public class AbbonatoDAOImpl implements AbbonatoDAO {
 
     @PersistenceContext

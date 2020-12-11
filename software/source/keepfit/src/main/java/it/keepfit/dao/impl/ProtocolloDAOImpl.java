@@ -9,9 +9,12 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import org.springframework.stereotype.Component;
+
 import it.keepfit.dao.ProtocolloDAO;
 import it.keepfit.entity.Protocollo;
 
+@Component
 public class ProtocolloDAOImpl implements ProtocolloDAO {
 
     @PersistenceContext

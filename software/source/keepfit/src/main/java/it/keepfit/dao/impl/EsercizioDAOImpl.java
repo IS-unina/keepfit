@@ -9,10 +9,13 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import org.springframework.stereotype.Component;
+
 import it.keepfit.dao.EsercizioDAO;
 import it.keepfit.entity.Esercizio;
 import it.keepfit.entity.GruppoMuscolare;
 
+@Component
 public class EsercizioDAOImpl implements EsercizioDAO {
 
     @PersistenceContext
