@@ -27,15 +27,15 @@ public class AdminBoundaryImpl implements AdminBoundary {
     }
 
     @Override
-    public String aggiungiAbbonato(Abbonato nuovoAbbonato) {
+    public String salvaAbbonato(Abbonato nuovoAbbonato) {
 	adminController.aggiungiAbbonato(nuovoAbbonato);
-	return "redirect:/admin/abbonati";
+	return "redirect:/admin/abbonati?nome=&cognome=&stato=";
     }
 
     @Override
-    public String rimuoviAbbonato(int id) {
-	// TODO Auto-generated method stub
-	return "";
+    public String rimuoviAbbonato(long id) {
+	adminController.eliminaAbbonato(id);
+	return "redirect:/admin/abbonati?nome=&cognome=&stato=";
     }
 
     @Override
@@ -54,8 +54,10 @@ public class AdminBoundaryImpl implements AdminBoundary {
     }
 
     @Override
-    public String modificaAbbonato(int id, Model model) {
+    public String modificaAbbonato(long id, Model model) {
+	LOGGER.info("recupero l'abbonato..");
 	Abbonato trovato = adminController.ricercaAbbonato(id);
+	LOGGER.info(trovato.toString());
 	model.addAttribute("abbonatoTrovato", trovato);
 	return "modificaAbbonato";
     }
@@ -67,8 +69,9 @@ public class AdminBoundaryImpl implements AdminBoundary {
     }
 
     @Override
-    public String mostraFormNuovoAbbonato() {
-	// TODO Auto-generated method stub
+    public String mostraFormNuovoAbbonato(Model model) {
+	Abbonato nuovoAbbonato = new Abbonato();
+	model.addAttribute("nuovoAbbonato", nuovoAbbonato);
 	return "nuovoAbbonato";
     }
 

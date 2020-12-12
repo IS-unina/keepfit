@@ -50,8 +50,9 @@
 						<td th:text="${abbonato.dataIscrizione}"></td>
 						<td><a
 							th:href="@{/admin/modificaAbbonato/{id}(id=${abbonato.id})}"
-							class="btn btn-primary">Aggiorna</a> <a
-							th:href="@{/admin/abbonati/{id}(id=${abbonato.id})}"
+							class="btn btn-primary">Aggiorna</a>
+							 <a
+							th:href="@{/admin/rimuoviAbbonato/{id}(id=${abbonato.id})}" th:method="delete"
 							class="btn btn-danger">Cancella</a></td>
 					</tr>
 				</tbody>

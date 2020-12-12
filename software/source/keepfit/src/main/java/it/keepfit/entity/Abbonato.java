@@ -11,6 +11,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "ABBONATI")
@@ -23,6 +25,7 @@ public class Abbonato {
     private String nome;
     @Column(name = "COGNOME", length = 20, nullable = false)
     private String cognome;
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
     @Column(name = "DATA_NASCITA", nullable = false)
     private Date dataNascita;
     @Column(name = "CODICE_FISCALE", nullable = false, unique = true)
@@ -35,6 +38,7 @@ public class Abbonato {
     private String telefonoFisso;
     @Column(name = "TELEFONO_MOBILE", length = 10)
     private String telefonoMobile;
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
     @Column(name = "DATA_ISCRIZIONE", nullable = false)
     private Date dataIscrizione;
     @OneToOne(mappedBy = "abbonato")

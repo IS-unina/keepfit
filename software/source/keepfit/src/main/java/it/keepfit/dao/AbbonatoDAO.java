@@ -8,8 +8,10 @@ public interface AbbonatoDAO {
 
     public List<Abbonato> leggiAbbonati(String nome, String cognome, String stato);
 
-    public Abbonato leggiAbbonatoById(int id);
+    public Abbonato leggiAbbonatoById(long id);
 
     public void creaAggiornaAbbonato(Abbonato nuovoAbbonato);
+
+    public void eliminaAbbonato(Abbonato trovato);
 
 }

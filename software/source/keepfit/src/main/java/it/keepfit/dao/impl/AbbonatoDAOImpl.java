@@ -51,13 +51,18 @@ public class AbbonatoDAOImpl implements AbbonatoDAO {
     }
 
     @Override
-    public Abbonato leggiAbbonatoById(int id) {
+    public Abbonato leggiAbbonatoById(long id) {
 	return em.find(Abbonato.class, id);
     }
 
     @Override
     public void creaAggiornaAbbonato(Abbonato nuovoAbbonato) {
-	em.persist(nuovoAbbonato);
+	em.merge(nuovoAbbonato);
+    }
+
+    @Override
+    public void eliminaAbbonato(Abbonato abbonato) {
+	em.remove(abbonato);
     }
 
 }

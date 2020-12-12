@@ -25,10 +25,10 @@ public class AdminControllerImpl implements AdminController {
 	if (nuovoAbbonato.getNome() == null || nuovoAbbonato.getCognome() == null) {
 	    throw new IllegalStateException("L'oggetto di tipo Abbonato ha l'attributo nome o cognome null");
 	}
-	if (!nuovoAbbonato.getNome().isEmpty() && !nuovoAbbonato.getNome().matches("[a-z,A-Z]")) {
+	if (!nuovoAbbonato.getNome().isEmpty() && !nuovoAbbonato.getNome().matches("[a-zA-Z]+")) {
 	    throw new IllegalStateException("Nome dell'abbonato non valido");
 	}
-	if (!nuovoAbbonato.getCognome().isEmpty() && !nuovoAbbonato.getCognome().matches("[a-z,A-Z]")) {
+	if (!nuovoAbbonato.getCognome().isEmpty() && !nuovoAbbonato.getCognome().matches("[a-zA-Z]+")) {
 	    throw new IllegalStateException("Cognome dell'abbonato non valido");
 	}
 
@@ -47,9 +47,8 @@ public class AdminControllerImpl implements AdminController {
     }
 
     @Override
-    public Abbonato ricercaAbbonato(int id) {
-	// TODO Auto-generated method stub
-	return null;
+    public Abbonato ricercaAbbonato(long id) {
+	return abbonatoDAO.leggiAbbonatoById(id);
     }
 
     @Override
@@ -85,6 +84,13 @@ public class AdminControllerImpl implements AdminController {
     @Override
     public void rinnovaAbbonamentoAccount(Abbonato abbonato) {
 	// TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void eliminaAbbonato(long id) {
+	Abbonato trovato = abbonatoDAO.leggiAbbonatoById(id);
+	abbonatoDAO.eliminaAbbonato(trovato);
 
     }
 

@@ -10,9 +10,11 @@ public interface AdminController {
 
     public List<Abbonato> ricercaAbbonati(String nome, String cognome, String stato);
 
-    public Abbonato ricercaAbbonato(int id);
+    public Abbonato ricercaAbbonato(long id);
 
     public void modificaAbbonato(Abbonato abbonato);
+
+    public void eliminaAbbonato(long id);
 
     public void promuoviAbbonatoAPremium(int id);
 
