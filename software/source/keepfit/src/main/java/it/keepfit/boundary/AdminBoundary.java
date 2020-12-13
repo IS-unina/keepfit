@@ -34,7 +34,7 @@ public interface AdminBoundary {
 	    @RequestParam("stato") String stato, Model model);
 
     @GetMapping("/admin/abbonati/{id}")
-    public String visualizzaDettaglioAbbonato(@PathVariable("id") int id);
+    public String visualizzaDettaglioAbbonato(@PathVariable("id") int id, Model model);
 
     @GetMapping("/admin/modificaAbbonato/{id}")
     public String modificaAbbonato(@PathVariable("id") long id, Model model);

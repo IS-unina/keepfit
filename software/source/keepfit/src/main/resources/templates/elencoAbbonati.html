@@ -9,6 +9,11 @@
 
 </head>
 <body>
+<div class="bg-dark">
+		<header>
+			<a class="navbar-brand" href="/">Keepfit</a>
+		</header>
+	</div>
 
 	<div class="container my-2">
 		<h1>Elenco abbonati</h1>
@@ -42,18 +47,19 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="abbonato : ${abbonati}">
+					<tr th:with="abb=${abbonato}" th:each="abbonato : ${abbonati}">
 						<td th:text="${abbonato.id}"></td>
 						<td th:text="${abbonato.nome}"></td>
 						<td th:text="${abbonato.cognome}"></td>
 						<td th:text="${abbonato.dataNascita}"></td>
 						<td th:text="${abbonato.dataIscrizione}"></td>
-						<td><a
-							th:href="@{/admin/modificaAbbonato/{id}(id=${abbonato.id})}"
+						<td><a th:href="@{/admin/modificaAbbonato/{id}(id=${abbonato.id})}"
 							class="btn btn-primary">Aggiorna</a>
-							 <a
-							th:href="@{/admin/rimuoviAbbonato/{id}(id=${abbonato.id})}" th:method="delete"
-							class="btn btn-danger">Cancella</a></td>
+							 <a th:href="@{/admin/rimuoviAbbonato/{id}(id=${abbonato.id})}"
+							class="btn btn-danger">Cancella</a>
+							<a th:href="@{/admin/abbonati/{id}(id=${abbonato.id})}"
+							class="btn btn-info">Info personali</a>
+						</td>
 					</tr>
 				</tbody>
 			</table>

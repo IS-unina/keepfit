@@ -48,8 +48,7 @@ public class AdminBoundaryImpl implements AdminBoundary {
     }
 
     @Override
-    public String visualizzaDettaglioAbbonato(int id) {
-	// TODO Auto-generated method stub
+    public String visualizzaDettaglioAbbonato(int id, Model model) {
 	return "dettaglioAbbonato";
     }
 
