@@ -11,6 +11,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "ABBONAMENTI")
@@ -20,8 +22,10 @@ public class Abbonamento {
     @GeneratedValue
     private Long id;
     @Column(name = "DATA_INIZIO")
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
     private Date inizioAbbonamento;
     @Column(name = "DATA_FINE")
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
     private Date fineAbbonamento;
     @OneToOne
     private Abbonato abbonato;

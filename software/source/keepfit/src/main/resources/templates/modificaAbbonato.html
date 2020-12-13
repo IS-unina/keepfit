@@ -21,25 +21,31 @@
 		<form action="#" th:action="@{/admin/salvaAbbonato}" th:object="${abbonatoTrovato}"
 			method="POST">
 			
-			<input type="hidden" th:field="*{id}" />
+			Id<input th:field="*{id}" class="form-control mb-4 col-4" readonly/>
 			
-			<input type="text" th:field="*{nome}" class="form-control mb-4 col-4">
+			Nome<input type="text" th:field="*{nome}" class="form-control mb-4 col-4">
 				
-				<input type="text" th:field="*{cognome}" class="form-control mb-4 col-4">
+				Cognome<input type="text" th:field="*{cognome}" class="form-control mb-4 col-4">
 				
-				<input type="date" th:field="*{dataNascita}" class="form-control mb-4 col-4">
+				Data di nascita<input type="date" th:field="*{dataNascita}" class="form-control mb-4 col-4">
 				
-				<input type="text" th:field="*{codiceFiscale}" class="form-control mb-4 col-4">
+				Codice fiscale<input type="text" th:field="*{codiceFiscale}" class="form-control mb-4 col-4">
 				
-				<input type="text" th:field="*{residenza}" class="form-control mb-4 col-4">
+				Residenza<input type="text" th:field="*{residenza}" class="form-control mb-4 col-4">
 				
-				<input type="text" th:field="*{domicilio}" class="form-control mb-4 col-4">
+				Domicilio<input type="text" th:field="*{domicilio}" class="form-control mb-4 col-4">
 				
-				<input type="text" th:field="*{telefonoFisso}" class="form-control mb-4 col-4">
+				Telefono fisso<input type="text" th:field="*{telefonoFisso}" class="form-control mb-4 col-4">
 				
-				<input type="text" th:field="*{telefonoMobile}" class="form-control mb-4 col-4">
+				Telefono mobile<input type="text" th:field="*{telefonoMobile}" class="form-control mb-4 col-4">
 				
-				<input type="date" th:field="*{dataIscrizione}" class="form-control mb-4 col-4">
+				Data di iscrizione<input type="date" th:field="*{dataIscrizione}" class="form-control mb-4 col-4">
+				
+				Inizio abbonamento<input type="date" th:field="*{abbonamento.inizioAbbonamento}"
+			class="form-control mb-4 col-4">
+			
+		Fine abbonamento<input type="date" th:field="*{abbonamento.fineAbbonamento}"
+			class="form-control mb-4 col-4">
 				
 				<button type="submit" class="btn btn-info col-2">Aggiorna</button>
 		</form>

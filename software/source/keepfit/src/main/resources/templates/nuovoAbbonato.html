@@ -22,32 +22,38 @@
 		<form action="#" th:action="@{/admin/salvaAbbonato}" th:object="${nuovoAbbonato}"
 			method="POST">
 			
-				<input type="text" th:field="*{nome}"
+				Nome<input type="text" th:field="*{nome}"
 				placeholder="Nome" class="form-control mb-4 col-4">
 				
-				<input type="text" th:field="*{cognome}"
+				Cognomr<input type="text" th:field="*{cognome}"
 				placeholder="Cognome" class="form-control mb-4 col-4">
 				
-				<input type="date" th:field="*{dataNascita}"
+				Data di nascita<input type="date" th:field="*{dataNascita}"
 				placeholder="Data di nascita" class="form-control mb-4 col-4">
 				
-				<input type="text" th:field="*{codiceFiscale}"
+				Codice Fiscale<input type="text" th:field="*{codiceFiscale}"
 				placeholder="Codice fiscale" class="form-control mb-4 col-4">
 				
-				<input type="text" th:field="*{residenza}"
+				Residenza<input type="text" th:field="*{residenza}"
 				placeholder="Residenza" class="form-control mb-4 col-4">
 				
-				<input type="text" th:field="*{domicilio}"
+				Domicilio<input type="text" th:field="*{domicilio}"
 				placeholder="Domicilio" class="form-control mb-4 col-4">
 				
-				<input type="text" th:field="*{telefonoFisso}"
+				Telefono fisso<input type="text" th:field="*{telefonoFisso}"
 				placeholder="Telefono fisso" class="form-control mb-4 col-4">
 				
-				<input type="text" th:field="*{telefonoMobile}"
+				Telefono mobile<input type="text" th:field="*{telefonoMobile}"
 				placeholder="Telefono mobile" class="form-control mb-4 col-4">
 				
-				<input type="date" th:field="*{dataIscrizione}"
+				Data di iscrizione<input type="date" th:field="*{dataIscrizione}"
 				placeholder="Data di iscrizione" class="form-control mb-4 col-4">
+				
+				Inizio abbonamento<input type="date" th:field="*{abbonamento.inizioAbbonamento}"
+				placeholder="Inizio abbonamento" class="form-control mb-4 col-4">
+				
+				Fine abbonamento<input type="date" th:field="*{abbonamento.fineAbbonamento}"
+				placeholder="Fine abbonamento" class="form-control mb-4 col-4">
 				
 				<button type="submit" class="btn btn-info col-2">Salva</button>
 		</form>

@@ -2,6 +2,7 @@ package it.keepfit.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -41,7 +42,7 @@ public class Abbonato {
     @DateTimeFormat(pattern = "yyyy-mm-dd")
     @Column(name = "DATA_ISCRIZIONE", nullable = false)
     private Date dataIscrizione;
-    @OneToOne(mappedBy = "abbonato")
+    @OneToOne(mappedBy = "abbonato", cascade = CascadeType.ALL)
     private Abbonamento abbonamento;
     @OneToOne(mappedBy = "abbonato")
     private AbbonamentoPremium abbonamentoPremium;

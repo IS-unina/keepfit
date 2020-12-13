@@ -15,37 +15,43 @@
 		</header>
 	</div>
 	
-	<h2>Scheda personale di <span th:field="*{nome}"></span><span th:field="*{cognome}"></span></h2>
+	<h2>Scheda personale</h2>
 	<hr>
 
 	<div class="container">
 	
-		<input type="hidden" th:field="*{id}" />
+		Id<input type="text" th:field="*{id}" class="form-control mb-4 col-4" readonly/>
 	
-		<input type="text" th:field="*{nome}" class="form-control mb-4 col-4">
+		Nome<input type="text" th:field="*{nome}" class="form-control mb-4 col-4" readonly>
 	
-		<input type="text" th:field="*{cognome}"
+		Cagnome<input type="text" th:field="*{cognome}" readonly
 			class="form-control mb-4 col-4">
 	
-		<input type="date" th:field="*{dataNascita}"
+		Data di nascita<input type="date" th:field="*{dataNascita}" readonly
 			class="form-control mb-4 col-4">
 	
-		<input type="text" th:field="*{codiceFiscale}"
+		Codice fiscale<input type="text" th:field="*{codiceFiscale}" readonly
 			class="form-control mb-4 col-4">
 	
-		<input type="text" th:field="*{residenza}"
+		Residenza<input type="text" th:field="*{residenza}" readonly
 			class="form-control mb-4 col-4">
 	
-		<input type="text" th:field="*{domicilio}"
+		Domicilio<input type="text" th:field="*{domicilio}" readonly
 			class="form-control mb-4 col-4">
 	
-		<input type="text" th:field="*{telefonoFisso}"
+		Telefono fisso<input type="text" th:field="*{telefonoFisso}" readonly
 			class="form-control mb-4 col-4">
 	
-		<input type="text" th:field="*{telefonoMobile}"
+		Telefono mobile<input type="text" th:field="*{telefonoMobile}" readonly
 			class="form-control mb-4 col-4">
 	
-		<input type="date" th:field="*{dataIscrizione}"
+		Data di iscrizione<input type="date" th:field="*{dataIscrizione}" readonly
+			class="form-control mb-4 col-4">
+			
+		Inizio abbonamento<input type="date" th:field="*{abbonamento.inizioAbbonamento}" readonly
+			class="form-control mb-4 col-4">
+			
+		Fine abbonamento<input type="date" th:field="*{abbonamento.fineAbbonamento}" readonly
 			class="form-control mb-4 col-4">
 	</div>
 </body>

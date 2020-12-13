@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 
 import it.keepfit.boundary.AdminBoundary;
 import it.keepfit.control.AdminController;
+import it.keepfit.entity.Abbonamento;
 import it.keepfit.entity.Abbonato;
 
 @Component
@@ -28,6 +29,7 @@ public class AdminBoundaryImpl implements AdminBoundary {
 
     @Override
     public String salvaAbbonato(Abbonato nuovoAbbonato) {
+	nuovoAbbonato.getAbbonamento().setAbbonato(nuovoAbbonato);
 	adminController.aggiungiAbbonato(nuovoAbbonato);
 	return "redirect:/admin/abbonati?nome=&cognome=&stato=";
     }
@@ -42,6 +44,13 @@ public class AdminBoundaryImpl implements AdminBoundary {
     public String visualizzaElencoAbbonati(String nome, String cognome, String stato, Model model) {
 	LOGGER.info("cerco gli abbonati..");
 	List<Abbonato> abbonati = adminController.ricercaAbbonati(nome, cognome, stato);
+	Boolean elencoEmpty;
+	if (abbonati == null || abbonati.isEmpty()) {
+	    elencoEmpty = true;
+	} else {
+	    elencoEmpty = false;
+	}
+	model.addAttribute("elencoEmpty", elencoEmpty);
 	model.addAttribute("abbonati", abbonati);
 	LOGGER.info("carico elenco abbonati..");
 	return "elencoAbbonati";
@@ -49,6 +58,10 @@ public class AdminBoundaryImpl implements AdminBoundary {
 
     @Override
     public String visualizzaDettaglioAbbonato(int id, Model model) {
+	LOGGER.info("recupero l'abbonato..");
+	Abbonato trovato = adminController.ricercaAbbonato(id);
+	LOGGER.info(trovato.toString());
+	model.addAttribute("abb", trovato);
 	return "dettaglioAbbonato";
     }
 
@@ -70,6 +83,7 @@ public class AdminBoundaryImpl implements AdminBoundary {
     @Override
     public String mostraFormNuovoAbbonato(Model model) {
 	Abbonato nuovoAbbonato = new Abbonato();
+	nuovoAbbonato.setAbbonamento(new Abbonamento());
 	model.addAttribute("nuovoAbbonato", nuovoAbbonato);
 	return "nuovoAbbonato";
     }
