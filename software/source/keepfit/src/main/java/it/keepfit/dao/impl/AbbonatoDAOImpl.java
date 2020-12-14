@@ -56,8 +56,8 @@ public class AbbonatoDAOImpl implements AbbonatoDAO {
     }
 
     @Override
-    public void creaAggiornaAbbonato(Abbonato nuovoAbbonato) {
-	em.merge(nuovoAbbonato);
+    public void creaAggiornaAbbonato(Abbonato abbonato) {
+	em.merge(abbonato);
     }
 
     @Override

@@ -37,8 +37,10 @@ public interface AdminBoundary {
     public String visualizzaDettaglioAbbonato(@PathVariable("id") int id, Model model);
 
     @GetMapping("/admin/modificaAbbonato/{id}")
+    @Transactional(readOnly = false, rollbackFor = RuntimeException.class)
     public String modificaAbbonato(@PathVariable("id") long id, Model model);
 
     @PutMapping("/admin/creaAccount")
+    @Transactional(readOnly = false, rollbackFor = RuntimeException.class)
     public String creaAccountPerAbbonato(@ModelAttribute("abbonato") Abbonato abbonato);
 }

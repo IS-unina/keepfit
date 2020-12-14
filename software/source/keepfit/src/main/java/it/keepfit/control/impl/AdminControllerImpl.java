@@ -41,9 +41,9 @@ public class AdminControllerImpl implements AdminController {
 	if (nome == null || cognome == null || stato == null) {
 	    throw new IllegalStateException("Il parametro di ricerca è null");
 	}
-	List<Abbonato> abbonatiTrovati = new ArrayList<>();
-	abbonatiTrovati = abbonatoDAO.leggiAbbonati(nome, cognome, stato);
-	return abbonatiTrovati;
+	List<Abbonato> listaAbbonati = new ArrayList<>();
+	listaAbbonati = abbonatoDAO.leggiAbbonati(nome, cognome, stato);
+	return listaAbbonati;
     }
 
     @Override
