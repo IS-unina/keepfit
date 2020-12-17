@@ -43,10 +43,10 @@ public class AdminControllerImpl implements AdminController {
 	if (!nuovoAbbonato.getNome().matches("^[a-zA-Z]{2,20}$")) {
 	    throw new IllegalStateException("Nome dell'abbonato non valido");
 	}
-	if (nuovoAbbonato.getCognome().matches("^[a-zA-Z]{2,20}$")) {
+	if (!nuovoAbbonato.getCognome().matches("^[a-zA-Z]{2,20}$")) {
 	    throw new IllegalStateException("Cognome dell'abbonato non valido");
 	}
-	if (!nuovoAbbonato.getCodiceFiscale().matches("[a-zA-Z0-9]{10}$")) {
+	if (!nuovoAbbonato.getCodiceFiscale().matches("[a-zA-Z0-9]{16}$")) {
 	    throw new IllegalStateException("Codice fiscale dell'abbonato non valido");
 	}
 	if (!nuovoAbbonato.getTelefonoFisso().isEmpty() && !nuovoAbbonato.getTelefonoFisso().matches("^[0-9]{10}$")) {
