@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package it.keepfit.dao.impl;
 
 import java.util.List;
@@ -14,12 +17,22 @@ import org.springframework.stereotype.Component;
 import it.keepfit.dao.ProtocolloDAO;
 import it.keepfit.entity.Protocollo;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ProtocolloDAOImpl.
+ */
 @Component
 public class ProtocolloDAOImpl implements ProtocolloDAO {
 
+    /** The em. */
     @PersistenceContext
     private EntityManager em;
 
+    /**
+     * Leggi protocolli.
+     *
+     * @return the list
+     */
     @Override
     public List<Protocollo> leggiProtocolli() {
 	CriteriaBuilder cb = em.getCriteriaBuilder();
@@ -30,6 +43,12 @@ public class ProtocolloDAOImpl implements ProtocolloDAO {
 	return query.getResultList();
     }
 
+    /**
+     * Leggi protocollo by id.
+     *
+     * @param id the id
+     * @return the protocollo
+     */
     @Override
     public Protocollo leggiProtocolloById(int id) {
 	return em.find(Protocollo.class, id);

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package it.keepfit.dao.impl;
 
 import java.util.List;
@@ -15,12 +18,22 @@ import it.keepfit.dao.EsercizioDAO;
 import it.keepfit.entity.Esercizio;
 import it.keepfit.entity.GruppoMuscolare;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class EsercizioDAOImpl.
+ */
 @Component
 public class EsercizioDAOImpl implements EsercizioDAO {
 
+    /** The em. */
     @PersistenceContext
     private EntityManager em;
 
+    /**
+     * Leggi esercizi.
+     *
+     * @return the list
+     */
     @Override
     public List<Esercizio> leggiEsercizi() {
 	CriteriaBuilder cb = em.getCriteriaBuilder();
@@ -31,11 +44,23 @@ public class EsercizioDAOImpl implements EsercizioDAO {
 	return query.getResultList();
     }
 
+    /**
+     * Leggi esercizio by id.
+     *
+     * @param id the id
+     * @return the esercizio
+     */
     @Override
     public Esercizio leggiEsercizioById(int id) {
 	return em.find(Esercizio.class, id);
     }
 
+    /**
+     * Leggi esercizio by gruppo.
+     *
+     * @param gruppoMuscolare the gruppo muscolare
+     * @return the list
+     */
     @Override
     public List<Esercizio> leggiEsercizioByGruppo(GruppoMuscolare gruppoMuscolare) {
 	CriteriaBuilder cb = em.getCriteriaBuilder();

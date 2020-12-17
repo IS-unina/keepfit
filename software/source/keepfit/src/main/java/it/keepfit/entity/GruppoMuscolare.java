@@ -1,6 +1,21 @@
+/*
+ * 
+ */
 package it.keepfit.entity;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Enum GruppoMuscolare.
+ */
 public enum GruppoMuscolare {
 
-    SPALLE, GAMBE, PETTO, BICIPITI, TRICIPITI, ADDOMINALI, SCHIENA, CARDIO
+    /** The spalle. */
+    SPALLE, /** The gambe. */
+ GAMBE, /** The petto. */
+ PETTO, /** The bicipiti. */
+ BICIPITI, /** The tricipiti. */
+ TRICIPITI, /** The addominali. */
+ ADDOMINALI, /** The schiena. */
+ SCHIENA, /** The cardio. */
+ CARDIO
 }
