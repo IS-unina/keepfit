@@ -50,14 +50,13 @@ public class AbbonatoDAOImpl implements AbbonatoDAO {
 
 	Predicate pr1 = cb.like(c.get("nome"), nome + "%");
 	Predicate pr2 = cb.like(c.get("cognome"), cognome + "%");
-
 	TypedQuery<Abbonato> query = null;
 
 	if (stato.equals("")) {
 	    q.select(c).where(pr1, pr2);
 	    query = em.createQuery(q);
 	} else {
-
+	    // se indico lo stato dell'abbonamento eseguo la join con la tabella abbonamento
 	    if (stato.equals(StatoAbbonamento.ATTIVO.name())) {
 		query = em.createQuery(
 			"SELECT abb.abbonato FROM Abbonamento abb WHERE abb.fineAbbonamento >= :today and abb.abbonato.nome like :nome and abb.abbonato.cognome like :cognome",
@@ -83,7 +82,6 @@ public class AbbonatoDAOImpl implements AbbonatoDAO {
 	} catch (PersistenceException e) {
 	    throw new AbbonatoException(e.getMessage());
 	}
-
 	return listaAbbonati;
     }
 
