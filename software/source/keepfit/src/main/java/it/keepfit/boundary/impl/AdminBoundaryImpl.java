@@ -37,6 +37,11 @@ public class AdminBoundaryImpl implements AdminBoundary {
     @Override
     public String viewHomePage() {
 	LOGGER.info("carico la home page dell'admin..");
+	return "landing";
+    }
+
+    @Override
+    public String login() {
 	return "index";
     }
 

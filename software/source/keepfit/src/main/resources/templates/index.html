@@ -9,18 +9,24 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 
+<link href="signin.css" rel="stylesheet">
+
 </head>
-<body style="background: url('http://localhost:8080/image.png') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
-	<div class="bg-dark">
-		<header>
-			<a class="navbar-brand" href="#">Keepfit</a>
-		</header>
-	</div>
-	<div class="container-fluid">
-		<ul>
-			<li><a th:href="@{/admin/abbonati?nome=&cognome=&stato=}"
-				class="btn btn-outline-info btn-lg"> Elenco abbonati </a></li>
-		</ul>
+<body style="background: url('http://localhost:8080/front.jpg') no-repeat center center fixed;">
+	<div style="background-color: white;
+		box-shadow:  10px  10px 5px #ffffff,
+			  		-10px -10px 5px #ffffff,
+               		10px -10px 5px #ffffff,
+              		-10px  10px 5px #ffffff;">
+		<h1 class="h3 mb-3 font-weight-normal text-center">Login admin</h1>
+		<label for="username" class="sr-only">Username</label> <input
+			type="text" id="inputEmail" class="form-control"
+			placeholder="Username" required autofocus> <label
+			for="inputPassword" class="sr-only">Password</label> <input
+			type="password" id="inputPassword" class="form-control"
+			placeholder="Password" required>
+		<a class="btn btn-lg btn-primary btn-block" type="button" th:href="@{/landing}">Accedi</a>
+		<p class="mt-5 mb-3 text-muted">&copy; 2020</p>
 	</div>
 </body>
 </html>

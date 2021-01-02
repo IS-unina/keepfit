@@ -26,8 +26,11 @@ public interface AdminBoundary {
      *
      * @return il nome della pagina html da renderizzare
      */
-    @GetMapping("/")
+    @GetMapping("/landing")
     public String viewHomePage();
+
+    @GetMapping("/")
+    public String login();
 
     /**
      * Mostra form nuovo abbonato.

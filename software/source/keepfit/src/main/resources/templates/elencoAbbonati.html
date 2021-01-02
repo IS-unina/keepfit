@@ -52,8 +52,8 @@
 						<td th:text="${abbonato.id}"></td>
 						<td th:text="${abbonato.nome}"></td>
 						<td th:text="${abbonato.cognome}"></td>
-						<td th:text="${abbonato.dataNascita}"></td>
-						<td th:text="${abbonato.dataIscrizione}"></td>
+						<td th:text="${#dates.format(abbonato.dataNascita, 'dd-MM-yyyy')}"></td>
+						<td th:text="${#dates.format(abbonato.dataIscrizione, 'dd-MM-yyyy')}"></td>
 						<td><span
 							th:if="${abbonato.abbonamento.fineAbbonamento.before(#dates.createNow())}">Scaduto</span>
 							<span
