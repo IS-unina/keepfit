@@ -49,6 +49,7 @@ public class AdminBoundaryImpl implements AdminBoundary {
     @Override
     public String salvaAbbonato(Abbonato nuovoAbbonato, Model model) {
 	nuovoAbbonato.getAbbonamento().setAbbonato(nuovoAbbonato);
+	nuovoAbbonato.getAbbonamento().setId(nuovoAbbonato.getAbbonamento().getId());
 	String page = "redirect:/admin/abbonati?nome=&cognome=&stato=";
 	try {
 	    adminController.aggiungiAbbonato(nuovoAbbonato);

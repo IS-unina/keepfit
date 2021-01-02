@@ -30,49 +30,49 @@ public class Abbonato {
     @Id
     @GeneratedValue
     private Long id;
-    
+
     /** The nome. */
     @Column(name = "NOME", length = 20, nullable = false)
     private String nome;
-    
+
     /** The cognome. */
     @Column(name = "COGNOME", length = 20, nullable = false)
     private String cognome;
-    
+
     /** The data nascita. */
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "DATA_NASCITA", nullable = false)
     private Date dataNascita;
-    
+
     /** The codice fiscale. */
     @Column(name = "CODICE_FISCALE", nullable = false, unique = true)
     private String codiceFiscale;
-    
+
     /** The residenza. */
     @Column(name = "RESIDENZA", length = 50, nullable = false)
     private String residenza;
-    
+
     /** The domicilio. */
     @Column(name = "DOMICILIO", length = 50)
     private String domicilio;
-    
+
     /** The telefono fisso. */
     @Column(name = "TELEFONO_FISSO", length = 10)
     private String telefonoFisso;
-    
+
     /** The telefono mobile. */
     @Column(name = "TELEFONO_MOBILE", length = 10)
     private String telefonoMobile;
-    
+
     /** The data iscrizione. */
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "DATA_ISCRIZIONE", nullable = false)
     private Date dataIscrizione;
-    
+
     /** The abbonamento. */
-    @OneToOne(mappedBy = "abbonato", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "abbonato", cascade = { CascadeType.ALL })
     private Abbonamento abbonamento;
-    
+
     /** The abbonamento premium. */
     @OneToOne(mappedBy = "abbonato")
     private AbbonamentoPremium abbonamentoPremium;

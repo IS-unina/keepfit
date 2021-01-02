@@ -29,17 +29,17 @@ public class Abbonamento {
     @Id
     @GeneratedValue
     private Long id;
-    
+
     /** The inizio abbonamento. */
     @Column(name = "DATA_INIZIO")
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date inizioAbbonamento;
-    
+
     /** The fine abbonamento. */
     @Column(name = "DATA_FINE")
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fineAbbonamento;
-    
+
     /** The abbonato. */
     @OneToOne
     private Abbonato abbonato;
