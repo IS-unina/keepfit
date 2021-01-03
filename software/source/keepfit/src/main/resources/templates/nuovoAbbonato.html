@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Nuovo abbonato</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+</head>
+<body>
+	<div class="bg-dark">
+		<header>
+			<a class="navbar-brand" href="/">Keepfit</a>
+		</header>
+	</div>
+	<div class="container my-2">
+		<h1>Gestione abbonati</h1>
+		<hr>
+		<h2>Nuovo abbonato</h2>
+
+		<form action="#" th:action="@{/admin/salvaAbbonato}"
+			th:object="${nuovoAbbonato}" method="POST">
+			
+			<div class="form-row">
+    			<div class="col">
+					<div class="form-group">
+						<label>Nome</label> <input type="text" th:field="*{nome}"
+							placeholder="Nome" class="form-control mb-4 col-4">
+					</div>
+    			</div>
+    			<div class="col">
+					<div class="form-group">
+						<label>Cognome</label> <input type="text" th:field="*{cognome}"
+							placeholder="Cognome" class="form-control mb-4 col-4">
+					</div>
+    			</div>
+    		</div>
+
+			<div class="form-row">
+    			<div class="col">
+					<div class="form-group">
+						<label>Data di nascita</label> <input type="date"
+							th:field="*{dataNascita}" placeholder="Data di nascita"
+							class="form-control mb-4 col-4">
+					</div>
+    			</div>
+    			<div class="col">
+					<div class="form-group">
+						<label>Codice fiscale</label> <input type="text"
+							th:field="*{codiceFiscale}" placeholder="Codice fiscale"
+							class="form-control mb-4 col-4">
+					</div>
+    			</div>
+    		</div>
+
+			<div class="form-group">
+				<label>Residenza</label> <input type="text" th:field="*{residenza}"
+					placeholder="Residenza" class="form-control mb-4 col-4">
+			</div>
+
+			<div class="form-group">
+				<label>Domicilio</label> <input type="text" th:field="*{domicilio}"
+					placeholder="Domicilio" class="form-control mb-4 col-4">
+			</div>
+			
+			<div class="form-row">
+    			<div class="col">
+					<div class="form-group">
+						<label>Telefono fisso</label> <input type="text"
+							th:field="*{telefonoFisso}" placeholder="Telefono fisso"
+							class="form-control mb-4 col-4">
+					</div>
+    			</div>
+    			<div class="col">
+					<div class="form-group">
+						<label>Telefono mobile</label> <input type="text"
+							th:field="*{telefonoMobile}" placeholder="Telefono mobile"
+							class="form-control mb-4 col-4">
+					</div>
+    			</div>
+    		</div>
+
+			<div class="form-group">
+				<label>Data di iscrizione</label> <input type="date"
+					th:field="*{dataIscrizione}" placeholder="Data di iscrizione"
+					class="form-control mb-4 col-4">
+			</div>
+
+			<div class="form-group">
+				<label>Inizio abbonamento</label> <input type="date"
+					th:field="*{abbonamento.inizioAbbonamento}"
+					placeholder="Inizio abbonamento" class="form-control mb-4 col-4">
+			</div>
+
+			<div class="form-group">
+				<label>Fine abbonamento</label> <input type="date"
+					th:field="*{abbonamento.fineAbbonamento}"
+					placeholder="Fine abbonamento" class="form-control mb-4 col-4">
+			</div>
+
+			<button type="submit" class="btn btn-success col-2">Salva</button>
+		</form>
+
+		<hr>
+
+
+		<a th:href="@{/admin/abbonati?nome=&cognome=&stato=}"
+			class="btn btn-danger btn-sm mb-3"> Annulla </a>
+	</div>
+
+</body>
+</html>

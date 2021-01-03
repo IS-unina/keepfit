@@ -1,0 +1,10 @@
+it.keepfit
+it.keepfit.boundary
+it.keepfit.boundary.impl
+it.keepfit.constants
+it.keepfit.control
+it.keepfit.control.impl
+it.keepfit.dao
+it.keepfit.dao.impl
+it.keepfit.entity
+it.keepfit.exception

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Gestione Abbonati</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+</head>
+<body>
+	<div class="bg-dark">
+		<header>
+			<a class="navbar-brand" href="/">Keepfit</a>
+		</header>
+	</div>
+
+	<div class="container my-2">
+		<h1>Elenco abbonati</h1>
+		<div>
+			<a th:href="@{/admin/nuovoAbbonato}"
+				class="btn btn-primary btn-sm mb-3"> Aggiungi un nuovo abbonato
+			</a>
+		</div>
+		<div>
+			<form th:action="@{/admin/abbonati}">
+				Nome <input type="search" th:name="nome"> Cognome <input
+					type="search" th:name="cognome"> Stato abbonamento<select
+					th:name="stato">
+					<option id="all" value="">ALL</option>
+					<option id="attivo" value="ATTIVO">ATTIVO</option>
+					<option id="scaduto" value="SCADUTO">SCADUTO</option>
+				</select> <input type="submit" value="Applica Filtro" class="btn btn-primary">
+			</form>
+		</div>
+		<hr>
+		<div th:if="${elencoEmpty}==false">
+			<table border="1" class="table table-striped table-responsive-md">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nome</th>
+						<th>Cognome</th>
+						<th>Data di nascita</th>
+						<th>Data di iscrizione</th>
+						<th>Stato abbonamento</th>
+						<th>Azioni</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:with="abb=${abbonato}" th:each="abbonato : ${abbonati}">
+						<td th:text="${abbonato.id}"></td>
+						<td th:text="${abbonato.nome}"></td>
+						<td th:text="${abbonato.cognome}"></td>
+						<td th:text="${#dates.format(abbonato.dataNascita, 'dd-MM-yyyy')}"></td>
+						<td th:text="${#dates.format(abbonato.dataIscrizione, 'dd-MM-yyyy')}"></td>
+						<td><span
+							th:if="${abbonato.abbonamento.fineAbbonamento.before(#dates.createNow())}">Scaduto</span>
+							<span
+							th:unless="${abbonato.abbonamento.fineAbbonamento.before(#dates.createNow())}">Attivo</span>
+						</td>
+						<td><a
+							th:href="@{/admin/modificaAbbonato/{id}(id=${abbonato.id})}"
+							class="btn btn-primary">Aggiorna</a> <a
+							th:href="@{/admin/rimuoviAbbonato/{id}(id=${abbonato.id})}"
+							class="btn btn-danger">Cancella</a> <a
+							th:href="@{/admin/abbonati/{id}(id=${abbonato.id})}"
+							class="btn btn-info">Info personali</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div th:unless="${elencoEmpty}==false" style="margin-top: 100px;">
+			<p style="text-align: center;">Nessun risultato</p>
+		</div>
+	</div>
+</body>
+</html>
